@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">アプリの言語切り替え</string>
+    <string name="email">電子メール</string>
+    <string name="password">パスワード</string>
+    <string name="change_language">言語を変更</string>
+</resources>

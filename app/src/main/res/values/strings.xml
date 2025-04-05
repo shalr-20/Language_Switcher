@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">App Language Switcher</string>
+    <string name="change_language">CHANGE LANGUAGE</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+</resources>

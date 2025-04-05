@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Переключатель языка приложения</string>
+    <string name="email">электронная почта</string>
+    <string name="password">пароль</string>
+    <string name="change_language">Сменить язык</string>
+</resources>
