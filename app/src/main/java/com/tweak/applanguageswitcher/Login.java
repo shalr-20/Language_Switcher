@@ -1,6 +1,7 @@
 package com.tweak.applanguageswitcher;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
@@ -22,14 +23,16 @@ public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // ✅ Apply locale BEFORE calling super.onCreate and setContentView
+        // apply locale BEFORE calling super.onCreate and setContentView
         applyLocale();
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        loadlocale();
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot()); // ✅ Only use this
+        setContentView(binding.getRoot());
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -55,15 +58,26 @@ public class Login extends AppCompatActivity {
     }
 
     private void setLocale(String language) {
-        Locale locale = new Locale(language);
+        Locale locale = new Locale(language);  // using Locale, we can deal with language, country, variant
         Locale.setDefault(locale);
 
+
+        //configuration refers to the device's settings and environment (like screen size, orientation, or language) that can affect how an app behaves or appears
         Configuration config = new Configuration();
         config.setLocale(locale);
         getBaseContext().getResources().updateConfiguration(
-                config,
-                getBaseContext().getResources().getDisplayMetrics()
+                config, getBaseContext().getResources().getDisplayMetrics()
         );
+
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString("app_lang", language);
+        editor.apply();
+    }
+
+    private  void loadlocale(){
+        SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        String language=preferences.getString("app_lang","");
+        setLocale(language);
     }
 
     private void applyLocale() {
