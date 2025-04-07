@@ -68,4 +68,4 @@ This folder structure ensures:
 
 ---
 
-<a href="https://github.com/user-attachments/assets/7b8d0933-bea5-41b1-be75-654fa11337b9" alt="Watch the video"> </a>
+<a href="https://github.com/user-attachments/assets/76605a15-a313-416c-85b8-0955d82a3e62" alt="Watch the video"> </a>
